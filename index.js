@@ -9,6 +9,13 @@ const server = new GraphQLServer({
         endpoint: 'graphql',
     },
 });
-server.start(() => {
-    console.log('graphql server started');
-});
+server.start(
+    {
+        port: process.env.PORT || '4000',
+        endpoint: '/graphql',
+        playground: '/playground',
+    },
+    () => {
+        console.log('graphql server started');
+    }
+);
