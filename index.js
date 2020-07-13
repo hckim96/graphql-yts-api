@@ -4,6 +4,10 @@ import resolvers from './graphql/resolvers';
 const server = new GraphQLServer({
     typeDefs: './graphql/schema.graphql',
     resolvers: resolvers,
+    opts: {
+        port: process.env.PORT || '4000',
+        endpoint: 'graphql',
+    },
 });
 server.start(() => {
     console.log('graphql server started');
