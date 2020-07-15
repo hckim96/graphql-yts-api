@@ -1,6 +1,9 @@
 // import { Movies, getMoviesById, addMovie, deleteMovie } from './db.js';
 
-import { getMovies, getMovieById, getSuggestions } from './db.js';
+// import { getMovies, getMovieById, getSuggestions } from './db.js';
+const getMovies = require('./db.js'),
+    getMovieById = require('./db.js'),
+    getSuggestions = require('./db.js');
 
 //
 const resolvers = {
@@ -16,4 +19,5 @@ const resolvers = {
     // },
 };
 
-export default resolvers;
+// export default resolvers;
+module.exports = resolvers;

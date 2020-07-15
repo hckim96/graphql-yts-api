@@ -1,9 +1,10 @@
 const API_URL = 'https://yts.mx/api/v2/list_movies.json';
 const MOVIE_DETAIL_URL = 'https://yts.mx/api/v2/movie_details.json';
 const MOVIE_SUGGESTIONS_URL = 'https://yts.mx/api/v2/movie_suggestions.json';
-import axios from 'axios';
-// const axios =require()
-export const getMovies = async (limit, minimum_rating) => {
+// import axios from 'axios';
+const axios = require('axios');
+// export const getMovies = async (limit, minimum_rating) => {
+const getMovies = async (limit, minimum_rating) => {
     let request_URL = API_URL + '?';
     if (limit > 0 && limit < 51) {
         request_URL += `limit=${limit}&`;
@@ -16,16 +17,22 @@ export const getMovies = async (limit, minimum_rating) => {
         return res.data.data.movies;
     });
 };
-export const getMovieById = async (id) => {
+// export const getMovieById = async (id) => {
+const getMovieById = async (id) => {
     return await axios
         .get(`${MOVIE_DETAIL_URL}?movie_id=${id}`)
         .then((res) => res.data.data.movie);
 };
-export const getSuggestions = async (id) => {
+// export const getSuggestions = async (id) => {
+const getSuggestions = async (id) => {
     return await axios
         .get(`${MOVIE_SUGGESTIONS_URL}?movie_id=${id}`)
         .then((res) => res.data.data.movies);
 };
+
+module.exports = getMovieById;
+module.exports = getSuggestions;
+module.exports = getMovies;
 // export let Movies = [
 //     {
 //         id: 0,
