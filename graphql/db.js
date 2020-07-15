@@ -2,7 +2,7 @@ const API_URL = 'https://yts.mx/api/v2/list_movies.json';
 const MOVIE_DETAIL_URL = 'https://yts.mx/api/v2/movie_details.json';
 const MOVIE_SUGGESTIONS_URL = 'https://yts.mx/api/v2/movie_suggestions.json';
 import axios from 'axios';
-
+// const axios =require()
 export const getMovies = async (limit, minimum_rating) => {
     let request_URL = API_URL + '?';
     if (limit > 0 && limit < 51) {
